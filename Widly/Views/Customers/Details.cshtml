@@ -1,0 +1,19 @@
+﻿@model Widly.Models.Customer 
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Name: @Model.Name</h2>
+
+<ul>
+
+        <li>Membership Type: @Model.MembershipType.Name</li>
+
+            @if (Model.BirthDate.HasValue)
+            {
+                <li>Birthdate: @Model.BirthDate.Value.ToShortDateString()</li>
+            }
+
+</ul>
