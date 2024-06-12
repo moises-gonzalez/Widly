@@ -29,6 +29,7 @@ namespace Widly.Controllers
 
             var viewModel = new CustomerFormViewModel 
             { 
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes 
             };
             return View("CustomerForm", viewModel);
