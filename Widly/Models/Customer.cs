@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Permissions;
+using System.Globalization;
 
 namespace Widly.Models
 {
@@ -22,7 +23,7 @@ namespace Widly.Models
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
 
-        [Display(Name = "Date of Birth")]
+        [Required, Display(Name = "Date of Birth")]
         [Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
     }

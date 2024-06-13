@@ -240,6 +240,10 @@
     <Compile Include="Migrations\202405302351578_UpdateMvieModel.Designer.cs">
       <DependentUpon>202405302351578_UpdateMvieModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406130001160_AddRequiredDoB.cs" />
+    <Compile Include="Migrations\202406130001160_AddRequiredDoB.Designer.cs">
+      <DependentUpon>202406130001160_AddRequiredDoB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -414,6 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202405302351578_UpdateMvieModel.resx">
       <DependentUpon>202405302351578_UpdateMvieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406130001160_AddRequiredDoB.resx">
+      <DependentUpon>202406130001160_AddRequiredDoB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
