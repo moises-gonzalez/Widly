@@ -41,15 +41,15 @@ namespace Widly.Controllers
             return View("MovieForm", viewModel);
         }
 
-        public ActionResult Edit(int Id)
+        public ActionResult Edit (int id)
         {
-            var movie = _context.Movies.SingleOrDefault(x => x.Id == Id);
+            var movie = _context.Movies.SingleOrDefault(x => x.Id == id);
+
             if (movie == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
             };
             return View("MovieForm", viewModel);
@@ -66,9 +66,20 @@ namespace Widly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(Movie movie)
+        [ValidateAntiForgeryToken]
+        public ActionResult Save (Movie movie)
         {
-            if (movie.Id == 0)
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {   
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("MovieForm", viewModel);
+            }
+
+            if(movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
